@@ -11,13 +11,15 @@ const Mammal = function(name) {
 Mammal.prototype = {
     sayHi: function() {
         return "Hello, my name is " + this.name;
+        // PROTOTIPO de mansaje a mostrar por consola.
     }
 }
 
 test("defining a 'class'", () => {
-    const eric  = new Mammal("Eric");
-    equal(__, eric.sayHi(), 'what will Eric say?');
+    const eric  = new Mammal("Eric");   // Se envia el parametro al prorotipo de MAMMAL.
+    equal("Hello, my name is Eric", eric.sayHi(), 'what will Eric say?');
 });
+
 
 // add another function to the Mammal 'type' that uses the sayHi function
 Mammal.prototype.favouriteSaying = function() {
@@ -26,8 +28,11 @@ Mammal.prototype.favouriteSaying = function() {
 
 test("more functions", () => {
     const bobby = new Mammal("Bobby");
-    equal(__, bobby.favouriteSaying(), "what is Bobby's favourite saying?"); 
+    equal("Bobby's favourite saying is Hello, my name is Bobby", bobby.favouriteSaying(), "what is Bobby's favourite saying?"); 
 });
+// Se tiene un espacio entre el actual type favouriteSaying y sayHi
+
+
 
 test("calling functions added to a prototype after an object was created", function() {
     var paul = new Mammal("Paul");
@@ -36,7 +41,7 @@ test("calling functions added to a prototype after an object was created", funct
     };
     // the following statement asks the paul object to call a function that was added
     // to the Mammal prototype after paul was constructed.
-    equal(__, paul.numberOfLettersInName(), "how long is Paul's name?");
+    equal(4, paul.numberOfLettersInName(), "how long is Paul's name?");
 });
 
 // helper function for inheritance. 
@@ -47,15 +52,16 @@ function extend(child, supertype) {
 
 // "Subclass" Mammal
 function Bat(name, wingspan) {
-    Mammal.call(this, name);
-    this.wingspan = wingspan;
+    Mammal.call(this, name);    //Nombre
+    this.wingspan = wingspan;   //Magnitud altura
 }	
 
 // configure inheritance
 extend(Bat, Mammal);
 
+
 test("Inheritance", () => {
     var lenny = new Bat("Lenny", "1.5m");
-    equal(__, lenny.sayHi(), "what does Lenny say?");
-    equal(__, lenny.wingspan, "what is Lenny's wingspan?");
+    equal("Hello, my name is Lenny", lenny.sayHi(), "what does Lenny say?");
+    equal("1.5m", lenny.wingspan, "what is Lenny's wingspan?");
 });

@@ -1,24 +1,25 @@
 // module("About Equality (topics/about_equality.js)");
-const { equal, ok } = require('assert')
+const assert = require('assert')        //const { ok, equal } = require('assert')   -- Original. Error de compilación por modulo.
+
 const { __, test } = require('../support/koans')
 
 test("numeric equality", () => {
-    equal(3 + __,  7, "");
+    assert.equal(3 + 4,  7, "");
 });
 
 test("string equality", () => {
-    equal("3" + __, "37", "concatenate the strings");
+    assert.equal("3" + "7", "37", "concatenate the strings");
 });
 
 test("equality without type coercion", () => {
-    ok(3 === __, 'what is exactly equal to 3?');
+    assert.ok(3 === 3, 'what is exactly equal to 3?');
 });
 
 test("equality with type coercion", () => {
-    ok(3 == "__", 'what string is equal to 3, with type coercion?');
+    assert.ok(3 == "3", 'what string is equal to 3, with type coercion?');
 });
 
 test("string literals", () => {
-    equal(__, "frankenstein", "quote types are interchangable, but must match.");
-    equal(__, 'frankenstein', "quote types can use both single and double quotes.");
+    assert.equal("frankenstein", "frankenstein", "quote types are interchangable, but must match.");
+    assert.equal('frankenstein', 'frankenstein', "quote types can use both single and double quotes.");
 });

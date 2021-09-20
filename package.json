@@ -1,25 +1,24 @@
 {
-  "main": "topics/about_asserts.js",
   "name": "javascript-koans",
-  "description": "Update ======",
   "version": "1.0.0",
+  "description": "Resolucion del TP, subido a GIT",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node ./",
-		"koans": ""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pipetus/JavaScript-Koans.git"
+    "url": "git+https://github.com/BelenRomero/JavaScript-Koans.git"
   },
   "keywords": [
     "javascript",
-    "koans"
+    "koans",
+    "TP2"
   ],
-  "author": "",
+  "author": "BER",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pipetus/JavaScript-Koans/issues"
+    "url": "https://github.com/BelenRomero/JavaScript-Koans/issues"
   },
-  "homepage": "https://github.com/pipetus/JavaScript-Koans#readme"
+  "homepage": "https://github.com/BelenRomero/JavaScript-Koans#readme"
 }
