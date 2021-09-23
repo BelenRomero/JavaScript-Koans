@@ -28,41 +28,45 @@ child.b = 2;
  * ---------------------- ---- ---- ----
  * */
 
-test("Is there an 'a' and 'b' own property on child?", () => {
-  equal(true, child.hasOwnProperty('a'), 'child.hasOwnProperty(\'a\')?');
-  equal(true, child.hasOwnProperty('b'), 'child.hasOwnProperty(\'b\')?');
-});
+const scriptFunction = () => {
+  test("Is there an 'a' and 'b' own property on child?", () => {
+    equal(true, child.hasOwnProperty('a'), 'child.hasOwnProperty(\'a\')?');
+    equal(true, child.hasOwnProperty('b'), 'child.hasOwnProperty(\'b\')?');
+  });
 
-test("Is there an 'a' and 'b' property on child?", () => {
-  equal(1, child.a, 'what is \'a\' value?');
-  equal(2, child.b, 'what is \'b\' value?');
-});
+  test("Is there an 'a' and 'b' property on child?", () => {
+    equal(1, child.a, 'what is \'a\' value?');
+    equal(2, child.b, 'what is \'b\' value?');
+  });
 
-test("If 'b' was removed, whats b value?", () => {
-  delete child.b;
-  equal(3, child.b, 'what is \'b\' value now?');  // Toma valor Father
-});
-
-
-test("Is there a 'c' own property on child?", () => {
-  equal(false, child.hasOwnProperty('c'), 'child.hasOwnProperty(\'c\')?');
-  // No tiene, toma de Father
-});
-
-// Is there a 'c' own property on child? No, check its prototype
-// Is there a 'c' own property on child.[[Prototype]]? Yes, its value is...
-test("Is there a 'c' property on child?", () => {
-  equal(4, child.c, 'what is the value of child.c?');
-  // Toma valor de Father
-});
+  test("If 'b' was removed, whats b value?", () => {
+    delete child.b;
+    equal(3, child.b, 'what is \'b\' value now?');  // Toma valor Father
+  });
 
 
-// Is there a 'd' own property on child? No, check its prototype
-// Is there a 'd' own property on child.[[Prototype]]? No, check it prototype
-// child.[[Prototype]].[[Prototype]] is null, stop searching, no property found, return...
-test("Is there an 'd' property on child?", () => {
-  equal(undefined, child.d, 'what is the value of child.d?');
-  // No hay
-});
+  test("Is there a 'c' own property on child?", () => {
+    equal(false, child.hasOwnProperty('c'), 'child.hasOwnProperty(\'c\')?');
+    // No tiene, toma de Father
+  });
+
+  // Is there a 'c' own property on child? No, check its prototype
+  // Is there a 'c' own property on child.[[Prototype]]? Yes, its value is...
+  test("Is there a 'c' property on child?", () => {
+    equal(4, child.c, 'what is the value of child.c?');
+    // Toma valor de Father
+  });
 
 
+  // Is there a 'd' own property on child? No, check its prototype
+  // Is there a 'd' own property on child.[[Prototype]]? No, check it prototype
+  // child.[[Prototype]].[[Prototype]] is null, stop searching, no property found, return...
+  test("Is there an 'd' property on child?", () => {
+    equal(undefined, child.d, 'what is the value of child.d?');
+    // No hay
+  });
+}
+
+
+// Module export
+module.exports = scriptFunction
